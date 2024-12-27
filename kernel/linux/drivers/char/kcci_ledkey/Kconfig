@@ -1,0 +1,7 @@
+menu "kcci gpio test device driver"
+	depends on ARM
+	config KCCI_LEDKEY
+	tristate "kcci ledkey device driver"
+	help
+	sample driver for ledkey device
+endmenu
