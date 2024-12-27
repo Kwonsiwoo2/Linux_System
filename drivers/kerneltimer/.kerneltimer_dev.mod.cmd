@@ -1,0 +1,1 @@
+savedcmd_/home/ubuntu/pi_bsp/drivers/kerneltimer/kerneltimer_dev.mod := printf '%s\n'   kerneltimer_dev.o | awk '!x[$$0]++ { print("/home/ubuntu/pi_bsp/drivers/kerneltimer/"$$0) }' > /home/ubuntu/pi_bsp/drivers/kerneltimer/kerneltimer_dev.mod

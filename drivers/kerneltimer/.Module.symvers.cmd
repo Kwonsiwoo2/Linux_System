@@ -1,0 +1,1 @@
+savedcmd_/home/ubuntu/pi_bsp/drivers/kerneltimer/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/ubuntu/pi_bsp/drivers/kerneltimer/Module.symvers -T /home/ubuntu/pi_bsp/drivers/kerneltimer/modules.order -i Module.symvers -e 

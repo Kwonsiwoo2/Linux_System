@@ -1,0 +1,1 @@
+savedcmd_/home/ubuntu/pi_bsp/drivers/p527_ledkey_proc/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/ubuntu/pi_bsp/drivers/p527_ledkey_proc/Module.symvers -T /home/ubuntu/pi_bsp/drivers/p527_ledkey_proc/modules.order -i Module.symvers -e 
