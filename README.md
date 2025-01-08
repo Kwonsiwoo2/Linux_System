@@ -1,15 +1,4 @@
-
-## Hi there 👋
-
-I’m an aspiring Embedded Systems Developer passionate about low-level programming and building efficient systems that bridge hardware and software. I enjoy solving challenges close to the metal and optimizing code for performance and resource constraints.
-
-📚 About Me
-
-🚀 Exploring embedded development and real-time systems
-
-🛠️ Tinkering with microcontrollers and hardware
-
-📖 Continuously learning and improving my coding skills
+## Linux System
 
 ---
 
@@ -91,8 +80,7 @@ C 언어는 하드웨어와 소프트웨어 사이의 효율적인 인터페이�
      #include <sys/syscall.h>
 
      long result = syscall(SYS_getpid);
-     printf("Current PID: %ld
-", result);
+     printf("Current PID: %ld\n", result);
      ```
 
 3. **U-Boot와 통신**:
@@ -112,3 +100,4 @@ C 언어는 하드웨어와 소프트웨어 사이의 효율적인 인터페이�
 ### 👇 Let's Connect!
 
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/Kwonsiwoo2)  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/%EC%8B%9C%EC%9A%B0-%EA%B6%8C-064765341/)
+
