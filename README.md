@@ -2,9 +2,6 @@
 
   - Linux 기반 시스템 개발을 위한 Yocto 프로젝트, U-Boot, 시스템 호출, C 언어 연동을 다룬 문서로, 임베디드 시스템과 소프트웨어 간의 효율적인 연동을 목표로 합니다.
 
-![결과물 사진](./images/linux_project.png)
-<br><br>
-
 ## 📁 프로젝트 간략 소개
 
 - Yocto 프로젝트와 U-Boot를 활용한 임베디드 리눅스 시스템 구축.
@@ -80,8 +77,7 @@ Linux_System_Project/
 ---
 
 ## 참고 자료
-- [Yocto 프로젝트 공식 문서](https://www.yoctoproject.org/documentation/)
+- [Yocto 프로젝트 공식 문서](https://docs.yoctoproject.org/)
 - [U-Boot 공식 문서](https://www.denx.de/wiki/U-Boot)
-- [리눅스 시스템 콜 문서](https://man7.org/linux/man-pages/man2/syscall.2.html)
 - [C 언어와 커널 인터페이스](https://kernelnewbies.org/)
 
