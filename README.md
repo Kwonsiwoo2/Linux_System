@@ -1,91 +1,81 @@
 ## Linux System
 
----
+  - Linux 기반 시스템 개발을 위한 Yocto 프로젝트, U-Boot, 시스템 호출, C 언어 연동을 다룬 문서로, 임베디드 시스템과 소프트웨어 간의 효율적인 연동을 목표로 합니다.
 
-## 1. Yocto
-Yocto 프로젝트는 임베디드 리눅스 시스템을 구축하기 위한 도구 및 메타데이터를 제공하는 오픈 소스 프로젝트입니다. 이 프로젝트는 사용자 정의 Linux 배포판을 생성하는 데 사용됩니다.
+![결과물 사진](./images/linux_project.png)
+<br><br>
 
-### 주요 기능:
-- **레시피 기반 빌드 시스템**: 특정 패키지, 커널, 부트로더 등을 위한 레시피를 정의하여 빌드합니다.
-- **확장성**: 사용자 정의 계층(layer)을 추가하여 기능을 확장할 수 있습니다.
-- **최적화된 빌드**: 임베디드 장치에서 효율적인 운영을 위해 경량화된 이미지를 생성합니다.
+## 📁 프로젝트 간략 소개
 
-### Yocto 워크플로우:
-1. **BitBake 설정**: 레시피와 메타데이터를 이용하여 빌드 환경 구성.
-2. **레이어 관리**: BSP(Board Support Package)와 애플리케이션 계층 추가.
-3. **이미지 빌드**: `bitbake core-image-minimal` 명령을 사용해 이미지 생성.
+- Yocto 프로젝트와 U-Boot를 활용한 임베디드 리눅스 시스템 구축.
+- 시스템 호출과 C 언어를 이용한 하드웨어 및 소프트웨어 연동 기술 제공.
 
----
+## 💻 프로젝트 내용
 
-## 2. U-Boot
-U-Boot는 유연한 오픈 소스 부트로더로, 임베디드 시스템에서 하드웨어 초기화 및 운영체제 로딩을 담당합니다.
+### 🎯 주요 내용
 
-### 주요 역할:
-- **하드웨어 초기화**: CPU, 메모리, 네트워크, 저장 장치 등 초기화.
-- **OS 로딩**: 리눅스 커널, 다른 운영체제, 또는 사용자 정의 애플리케이션을 메모리에 로드.
-- **명령 줄 인터페이스**: 부팅 옵션 변경 및 디버깅을 위한 CLI 제공.
+1. **Yocto 프로젝트**:
+   - 사용자 정의 Linux 배포판을 생성하기 위한 오픈 소스 플랫폼.
+   - BSP(Board Support Package)와 애플리케이션 계층을 추가하여 확장성 제공.
+   - 레시피 기반의 빌드 시스템으로 필요한 구성 요소를 효율적으로 관리.
 
-### U-Boot 빌드:
-1. **환경 설정**:
-   ```bash
-   make <board_config>_defconfig
-   ```
-2. **U-Boot 컴파일**:
-   ```bash
-   make -j$(nproc)
-   ```
-3. **결과물**:
-   - `u-boot.bin`: 부팅 가능한 바이너리.
-   - `u-boot.img`: 이미지 파일.
+2. **U-Boot**:
+   - 임베디드 시스템에서 초기 하드웨어 설정과 OS 부팅을 담당.
+   - CLI를 통한 디버깅과 설정 변경.
+   - 다양한 보드 지원과 유연한 확장성.
 
----
+3. **시스템 호출**:
+   - 사용자 애플리케이션이 커널 기능에 접근하기 위한 인터페이스.
+   - 프로세스 제어, 파일 시스템, 네트워크와 같은 기능 지원.
+   - 커널 내 사용자 정의 시스템 호출 구현으로 기능 확장.
 
-## 3. System Call
-System Call은 사용자 애플리케이션과 운영체제 커널 간의 인터페이스를 제공합니다. 프로세스, 파일 시스템, 네트워크 등 리소스에 접근하기 위해 호출됩니다.
+4. **C 언어 연동**:
+   - GPIO, PWM, UART와 같은 하드웨어 제어.
+   - 시스템 호출 연동을 통해 소프트웨어와 하드웨어 간의 효율적인 인터페이스 제공.
 
-### 주요 시스템 콜:
-- **파일 제어**: `open()`, `read()`, `write()`, `close()`
-- **프로세스 제어**: `fork()`, `exec()`, `exit()`
-- **메모리 관리**: `mmap()`, `brk()`
-- **네트워크**: `socket()`, `connect()`, `bind()`
+### 💡 추가 구현 사항
 
-### 사용자 정의 System Call 작성:
-1. **커널 코드 수정**: 시스템 호출 테이블에 새로운 호출 추가.
-2. **시그니처 정의**: 커널 내에서 새 함수 구현.
-3. **헤더 파일 업데이트**: 사용자 공간에서 호출할 수 있도록 인터페이스 제공.
+- **테스트 자동화 스크립트**:
+  - 빌드 및 테스트 과정을 자동화하여 개발 효율성 향상.
+  - Python과 Bash 스크립트를 활용하여 반복 작업 최소화.
 
----
+- **디버깅 툴 통합**:
+  - gdb와 같은 디버깅 툴을 사용하여 개발 과정에서 발생하는 오류를 빠르게 해결.
 
-## 4. 애플리케이션과 C 언어 연동
-C 언어는 하드웨어와 소프트웨어 사이의 효율적인 인터페이스를 제공합니다. 특히 시스템 호출과 직접적인 연동이 가능합니다.
+- **최적화 기술 적용**:
+  - 커널과 애플리케이션의 메모리 사용량 최적화.
+  - 빌드 시간 단축을 위한 ccache 사용.
 
-### 주요 연동 사례:
-1. **하드웨어 제어**:
-   - GPIO, PWM, UART와 같은 장치를 C 코드로 제어.
-   - 예제:
-     ```c
-     int fd = open("/dev/led", O_WRONLY);
-     if (fd < 0) {
-         perror("Failed to open device");
-         return -1;
-     }
-     write(fd, "1", 1);
-     close(fd);
-     ```
+## 🗂️ 파일 구성
 
-2. **시스템 호출 사용**:
-   - `syscall()` 함수를 사용해 커널 기능 호출.
-     ```c
-     #include <unistd.h>
-     #include <sys/syscall.h>
+```
+Linux_System_Project/
+├── yocto/
+│   ├── recipes/         # Yocto 레시피 파일
+│   └── build/           # 빌드된 이미지
+├── u-boot/
+│   ├── configs/         # 보드 설정 파일
+│   ├── u-boot.bin       # 부팅 바이너리 파일
+│   └── u-boot.img       # 이미지 파일
+├── system_call/
+│   ├── custom_syscall.c # 사용자 정의 시스템 호출 구현
+│   └── syscall_test.c   # 테스트 프로그램
+└── c_language/
+    ├── gpio_control.c   # GPIO 제어 코드
+    ├── pwm_control.c    # PWM 제어 코드
+    └── uart_control.c   # UART 제어 코드
+```
 
-     long result = syscall(SYS_getpid);
-     printf("Current PID: %ld\n", result);
-     ```
+## 🛠️ 기술 스택
 
-3. **U-Boot와 통신**:
-   - U-Boot 환경 변수 읽기/쓰기.
-   - 네트워크 부팅 명령 전송.
+### **소프트웨어**
+- **Yocto Project**: 사용자 정의 리눅스 배포판 생성
+- **U-Boot**: 하드웨어 초기화 및 부트로더
+- **C 언어**: 하드웨어 제어 및 시스템 호출 연동
+
+### **하드웨어**
+- 임베디드 보드 (ARM Cortex-A 기반)
+- GPIO, PWM, UART 등 주변 장치
 
 ---
 
@@ -94,10 +84,4 @@ C 언어는 하드웨어와 소프트웨어 사이의 효율적인 인터페이�
 - [U-Boot 공식 문서](https://www.denx.de/wiki/U-Boot)
 - [리눅스 시스템 콜 문서](https://man7.org/linux/man-pages/man2/syscall.2.html)
 - [C 언어와 커널 인터페이스](https://kernelnewbies.org/)
-
----
-
-### 👇 Let's Connect!
-
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/Kwonsiwoo2)  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/%EC%8B%9C%EC%9A%B0-%EA%B6%8C-064765341/)
 
